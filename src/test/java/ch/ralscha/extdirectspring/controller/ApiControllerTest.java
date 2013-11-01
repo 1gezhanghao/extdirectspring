@@ -307,11 +307,11 @@ public class ApiControllerTest {
 	public void testFullRouterUrl() throws Exception {
 		ApiRequestParams params = ApiRequestParams.builder().apiNs("apiNs").actionNs("").remotingApiVar("TEST_RMT_API")
 				.pollingUrlsVar("TEST_POLL_URLS").sseVar("TEST_SSE").fullRouterUrl(true).group("group2").build();
-		runTest(mockMvc, params, group2Apis(null, "http://localhost:80/router"));
+		runTest(mockMvc, params, group2Apis(null, "http://localhost/router"));
 
 		params = ApiRequestParams.builder().apiNs("apiNs").remotingApiVar("TEST_RMT_API")
 				.pollingUrlsVar("TEST_POLL_URLS").sseVar("TEST_SSE").fullRouterUrl(true).group("group2").build();
-		runTest(mockMvc, params, group2Apis(null, "http://localhost:80/router"));
+		runTest(mockMvc, params, group2Apis(null, "http://localhost/router"));
 
 		params = ApiRequestParams.builder().apiNs("apiNs").actionNs("").remotingApiVar("TEST_RMT_API")
 				.pollingUrlsVar("TEST_POLL_URLS").sseVar("TEST_SSE").fullRouterUrl(false).group("group2").build();
@@ -326,12 +326,12 @@ public class ApiControllerTest {
 	public void testFormat() throws Exception {
 		ApiRequestParams params = ApiRequestParams.builder().actionNs("").apiNs("apiNs").remotingApiVar("TEST_RMT_API")
 				.pollingUrlsVar("TEST_POLL_URLS").sseVar("TEST_SSE").group("group2").format("json").build();
-		runTest(mockMvc, params, group2Apis(null, "http://localhost:80/router"));
+		runTest(mockMvc, params, group2Apis(null, "http://localhost/router"));
 
 		params = ApiRequestParams.builder().actionNs("ns").apiNs("").remotingApiVar("TEST_RMT_API")
 				.pollingUrlsVar("TEST_POLL_URLS").sseVar("TEST_SSE").group("group2").format("json").fullRouterUrl(true)
 				.build();
-		runTest(mockMvc, params, group2Apis("ns", "http://localhost:80/router"));
+		runTest(mockMvc, params, group2Apis("ns", "http://localhost/router"));
 	}
 
 	@Test

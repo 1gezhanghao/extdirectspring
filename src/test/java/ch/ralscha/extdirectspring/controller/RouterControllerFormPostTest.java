@@ -49,7 +49,7 @@ import ch.ralscha.extdirectspring.util.ExtDirectSpringUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration("classpath:/testApplicationContext.xml")
+@ContextConfiguration("classpath:/testApplicationContextN.xml")
 public class RouterControllerFormPostTest {
 
 	@Autowired
@@ -144,6 +144,7 @@ public class RouterControllerFormPostTest {
 		parameters.put("result", "theResult");
 
 		MvcResult resultMvc = ControllerUtil.performRouterRequest(mockMvc, null, parameters, null, false);
+		System.out.println(resultMvc.getResponse().getContentAsString());
 		ExtDirectResponse edsResponse = ControllerUtil.readDirectResponse(resultMvc.getResponse()
 				.getContentAsByteArray());
 
